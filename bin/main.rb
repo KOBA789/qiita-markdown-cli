@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'qiita-markdown'
+
+input = STDIN
+input = File.open(ARGV[0]) if ARGV.length > 0
+processor = Qiita::Markdown::Processor.new
+result = processor.call(input.read)
+output = result[:output].to_s
+STDOUT.write(output)
