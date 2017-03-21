@@ -4,7 +4,7 @@ require 'qiita-markdown'
 
 input = STDIN
 input = File.open(ARGV[0]) if ARGV.length > 0
-processor = Qiita::Markdown::Processor.new
+processor = Qiita::Markdown::Processor.new(hostname: "example.com")
 result = processor.call(input.read)
 output = result[:output].to_s
 STDOUT.write(output)
